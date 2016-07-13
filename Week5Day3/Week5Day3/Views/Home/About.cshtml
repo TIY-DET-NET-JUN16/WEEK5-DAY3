@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@*<p>Use this area to provide additional information.</p>
+
+    @{ int total = 7;}
+    @{ string myMessage = "Hello World"; }
+
+    <p>The total is : @total</p>
+
+    <p>The message is @myMessage</p>
+
+    @{
+        string greeting = "Welcome to our Site! ";
+        DayOfWeek dow = DateTime.Now.DayOfWeek;
+        string message = greeting + " the string day of the week is: " + dow.ToString() + " and the int value is " + ((int)dow);
+    }
+
+    <p>@message</p>
+
+    <p>@greeting the string day of the week is: @dow.ToString() and the int value is @((int)dow) </p>
+
+    @{ string path = @"C:\MyFolder\"; }
+
+    @{ string quote = "The she said \"something\"";}
+
+    <p>@path</p>
+
+    <p>@quote &amp;</p>
+
+    @{ string myQuote = "The person said \"Hello\""; }
+
+    <p>@myQuote</p>
+
+    <table border="1">
+        <tr>
+            <td>Requested URL</td>
+            <td>Relative Path</td>
+            <td>Full Path</td>
+            <td>HTTP Request Type</td>
+        </tr>
+        <tr>
+            <td>@Request.Url</td>
+            <td>@Request.FilePath</td>
+            <td>@Request.MapPath(Request.FilePath)</td>
+            <td>@Request.RequestType</td>
+        </tr>
+    </table>*@
+
+@*@{
+        var result = "";
+        string text = "";
+
+        if (IsPost)
+        {
+            result = "This page was posted using the submit button";
+            text = Request["textBox"];
+        }
+        else
+        {
+            result = "This was the first request for this page";
+        }
+    }*@
+
+@*@for (int i = 0; i < 10; i++)
+    {
+        <label>Number of times run = @i</label><br/>
+    }*@
+
+@{
+    List<string> looper = new List<string>();
+
+    for (int i = 0; i < 10; i++)
+    {
+        looper.Add(string.Format("loop {0}", i));
+    }
+}
+
+@*@foreach(string test in looper)
+    {
+        <p><b>@test</b></p>
+    }*@
+
+@*<form method="post" action="">
+        <input type="submit" name="submitButton" value="Submit" />
+        <input type="text" name="textBox" value="Enter something here" />
+        <p>@result</p>
+
+        <p>You typed @text</p>
+    </form>*@
+
+@{ 
+    int j = 0;
+    while (j < 5)
+    {
+        j++;
+        <p>While Loop counter = @j</p>
+    }
+}
